@@ -2,6 +2,12 @@
 
 A flutter project showing an image gallery in a staggered view. (Image source - Pixabay API)
 
+## Features
+ - Responsive Layout - Automatically adjust number of columns based on screen width
+ - Shimmer Loading - Shows a beautiful shimmer loading animation
+ - Cached images - The network images are cached so it doesn't load the same image repeatedly
+ - Shows no. of likes and views
+
 ## Getting Started
 
 ### Prerequisites
