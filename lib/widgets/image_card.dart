@@ -20,7 +20,8 @@ class ImageCard extends StatelessWidget {
           CachedNetworkImage(
             imageUrl: image.webformatURL,
             fit: BoxFit.cover,
-            progressIndicatorBuilder: (context, url, downloadProgress) => Shimmer.fromColors(
+            progressIndicatorBuilder: (context, url, downloadProgress) =>
+                Shimmer.fromColors(
               baseColor: Colors.grey[300]!,
               highlightColor: Colors.grey,
               period: const Duration(milliseconds: 500),
@@ -38,14 +39,16 @@ class ImageCard extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    const Icon(Icons.favorite, color: Colors.redAccent, size: 18),
+                    const Icon(Icons.favorite,
+                        color: Colors.redAccent, size: 18),
                     const SizedBox(width: 4),
                     Text(image.likes.asFormattedValue),
                   ],
                 ),
                 Row(
                   children: [
-                    const Icon(Icons.remove_red_eye, color: Colors.blueAccent, size: 18),
+                    const Icon(Icons.remove_red_eye,
+                        color: Colors.blueAccent, size: 18),
                     const SizedBox(width: 4),
                     Text(image.views.asFormattedValue),
                   ],

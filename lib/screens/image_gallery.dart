@@ -34,7 +34,8 @@ class ImageGalleryState extends State<ImageGallery> {
   }
 
   void _scrollListener() {
-    if (_scrollController.offset >= _scrollController.position.maxScrollExtent &&
+    if (_scrollController.offset >=
+            _scrollController.position.maxScrollExtent &&
         !_scrollController.position.outOfRange) {
       _loadImages();
     }
@@ -60,21 +61,26 @@ class ImageGalleryState extends State<ImageGallery> {
       appBar: AppBar(
         title: const Text('Image Gallery'),
       ),
-      body: LayoutBuilder(builder: (context, constraints) {
-        return MasonryGridView.count(
-          crossAxisCount: Utilities.calculateCrossAxisCount(constraints.maxWidth),
-          controller: _scrollController,
-          itemCount: _images.length + 1,
-          itemBuilder: (context, index) {
-            if (index < _images.length) {
-              final image = _images[index];
-              return ImageCard(image: image);
-            } else {
-              return _isLoading ? const Center(child: CircularProgressIndicator()) : const SizedBox.shrink();
-            }
-          },
-        );
-      }),
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          return MasonryGridView.count(
+            crossAxisCount:
+                Utilities.calculateCrossAxisCount(constraints.maxWidth),
+            controller: _scrollController,
+            itemCount: _images.length + 1,
+            itemBuilder: (context, index) {
+              if (index < _images.length) {
+                final image = _images[index];
+                return ImageCard(image: image);
+              } else {
+                return _isLoading
+                    ? const Center(child: CircularProgressIndicator())
+                    : const SizedBox.shrink();
+              }
+            },
+          );
+        },
+      ),
     );
   }
 }
