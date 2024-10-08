@@ -1,4 +1,5 @@
 class Utilities {
+  /// To decide the number of columns based on the screen width
   static int calculateCrossAxisCount(double screenWidth) {
     if (screenWidth > 1200) {
       return 5;

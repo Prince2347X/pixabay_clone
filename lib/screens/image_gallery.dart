@@ -34,6 +34,7 @@ class ImageGalleryState extends State<ImageGallery> {
   }
 
   void _scrollListener() {
+    /// Loading more images when the user reaches the bottom of the list
     if (_scrollController.offset >=
             _scrollController.position.maxScrollExtent &&
         !_scrollController.position.outOfRange) {
