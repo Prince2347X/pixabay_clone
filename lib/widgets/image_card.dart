@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:shimmer/shimmer.dart';
+
 import 'package:pixabay_clone/core/extensions.dart';
 import 'package:pixabay_clone/models/image.dart';
 
@@ -14,7 +17,20 @@ class ImageCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.network(image.webformatURL, fit: BoxFit.cover),
+          CachedNetworkImage(
+            imageUrl: image.webformatURL,
+            fit: BoxFit.cover,
+            progressIndicatorBuilder: (context, url, downloadProgress) => Shimmer.fromColors(
+              baseColor: Colors.grey[300]!,
+              highlightColor: Colors.grey,
+              period: const Duration(milliseconds: 500),
+              child: Container(
+                color: Colors.grey[300],
+                height: 120,
+              ),
+            ),
+            errorWidget: (context, url, error) => const Icon(Icons.error),
+          ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
