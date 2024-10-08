@@ -36,8 +36,20 @@ class ImageCard extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Likes: ${image.likes.asFormattedValue}'),
-                Text('Views: ${image.views.asFormattedValue}'),
+                Row(
+                  children: [
+                    const Icon(Icons.favorite, color: Colors.redAccent, size: 18),
+                    const SizedBox(width: 4),
+                    Text(image.likes.asFormattedValue),
+                  ],
+                ),
+                Row(
+                  children: [
+                    const Icon(Icons.remove_red_eye, color: Colors.blueAccent, size: 18),
+                    const SizedBox(width: 4),
+                    Text(image.views.asFormattedValue),
+                  ],
+                ),
               ],
             ),
           ),
